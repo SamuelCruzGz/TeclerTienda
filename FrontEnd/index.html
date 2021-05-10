@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../FrontEnd/assets/css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <title>Tienda Virtual</title>
+</head>
+<body>
+    <div class="container">
+        <div class="search-bar">
+            <img src="./assets/img/tecla.png" class="logo">
+            <button type="button" onclick="" class="btn btn-outline-dark">Carrito</button>
+            <input type="text" placeholder="Buscar..." id='search'>
+            <button type="button" onclick="buscar()" class="search-icon">Buscar</button>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Categorias</h5>
+            <div class="card-body">
+                <button type="button" onclick="getProducto('Celulares')" class="btn btn-secondary">Celulares</button>
+                <button type="button" onclick="getProducto('Laptops')" class="btn btn-secondary">Laptops</button>
+                <button type="button" onclick="getProducto('Camaras y video')" class="btn btn-secondary">Camaras y video</button>
+                <button type="button" onclick="getProducto('Telefonia')" class="btn btn-secondary">Telefonia</button>
+                <button type="button" onclick="getProducto('Consolas')" class="btn btn-secondary">Consolas</button>
+                <button type="button" onclick="getProducto('Videojuegos')" class="btn btn-secondary">Videojuegos</button>
+                <button type="button" onclick="getProducto('Acesorios de videojuegos')" class="btn btn-secondary">Acesorios de videojuegos</button>
+                <button type="button" onclick="getProducto('Audifonos')" class="btn btn-secondary">Audifonos</button>
+            </div>
+        </div>
+        <div id="MercadoLibre">
+        </div>
+    </div>
+
+    <script src="../BackEnd/index.js"></script>
+</body>
+</html>
