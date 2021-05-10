@@ -4,13 +4,15 @@ const corsOptions = {
         if (process.env.LISTABLANCA.indexOf(origin)){
             callback (null, true)
         }else {
-            callback( new Error('Usted no está autorizado a ingresar a mi API por Cors'))
+            callback( new Error('El acceso no esta permitido desde tu dirección'))
         }
     }
 }
 const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // limitar el tiempo de acceso a 15 minutos
-    max: 200, //Limite desde la IP de la cantidad de veces que quiero que accedea a mi API
-    message: 'Usted excedió el limite máximo de ingresos a la API, intente más tarde'
+    //Limite de acceso 20 minutos
+    windowMs: 20 * 60 * 1000, 
+    //Limite de intentos para acceder
+    max: 100, 
+    message: 'Excediste los intentos. Estarás bloqueado por 20 minutos'
 });
 module.exports = {corsOptions, limiter}
