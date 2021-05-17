@@ -1,5 +1,6 @@
+// Declaración de variables
 const url = "https:/api.mercadolibre.com/sites/MLM/search?q="
-let textML = document.getElementById("MercadoLibre");
+let textML = document.getElementById("MercadoLibre")
 const footer = document.getElementById('footer')
 const templateFooter = document.getElementById('template-footer').content
 const templateCarrito = document.getElementById('template-carrito').content
@@ -9,16 +10,12 @@ const cards = document.getElementById('cards')
 let contador = 0
 let carrito = {}
 
+//Cuando escuche el evento ejecutará nuestra función
 document.addEventListener('DOMContentLoaded', () => {
     buscar()
-    
-    if (localStorage.getItem('carrito')) {
-        carrito = JSON.parse(localStorage.getItem('carrito'))
-        pintarCarrito()
-    }
 })
-//Obtener click del boton de carrito de compras
 
+//Obtener click del boton de carrito de compras
 textML.addEventListener('click', e => {
     addCarrito(e);
 })
@@ -27,102 +24,63 @@ items.addEventListener('click', e => {
     btnAgregarQuitar(e);
 })
 
+
+//Función para uso de nuestro buscador
 function buscar() {
     let input = document.getElementById('search').value
     getProducto(input)
+    
     if (contador != 0) {
         location.reload()
     }
     contador++
 }
 
-
-//Prueba
-//traer productos
-/*
-const fetchData = async(nombre)  => {
-    const productName = url + nombre
-    const res = await fetch(productName);
-    const data2 = await res.json()
-    //console.log(data)
-    pintarCards(data2)
-}
-*/
-
-/*
-async function getProduct (name){
-    let productName = url + name
-    let res = await fetch (productName)
-    const data = await res.json()
-    //console.log(data);
-    pintarCards(data)
-}*/
-
+//Función para obtener el producto y mostrarlo
 function getProducto(name) {
     name.innerHTML = ''
     let productName = url + name
     fetch(productName)
         .then(response => response.json())
-        .then(json => {
-            for (let i = 0; i < productName.length; i++) {
-                const myDiv = document.createElement('div')
-                myDiv.className = 'div-mostrar'
-                const icon = document.createElement('button')
-                icon.className = 'fa fa-cart-plus'
-                icon.setAttribute('aria-hidden', true)
-                icon.setAttribute('id', 'icon')
-                const myPara1 = document.createElement('p')
-                myPara1.textContent = `${json.results[i].title}`
-                //Convertir precio de string a entero
-                newprice = `$ ${json.results[i].price}`.substring(2, `$ ${json.results[i].price}`.length)
-                newprice2 = parseInt(newprice);
-                const myPara2 = document.createElement('h5')
-                myPara2.textContent = newprice2
-                let imagen = document.createElement('img')
-                imagen.setAttribute('src', json.results[i].thumbnail)
-                imagen.className += "imagen"
-                myDiv.appendChild(myPara1)
-                myDiv.appendChild(myPara2)
-                myDiv.appendChild(imagen)
-                myDiv.appendChild(icon).dataset.id = `$ ${json.results[i].id}`
-                textML.appendChild(myDiv)
-                //               textML.appendChild(aceptar)
-                //              textML.appendChild(eliminar)*/
-
-            }
+        .then(json => {            
+                for (let i = 0; i < productName.length; i++) {
+                    const myDiv = document.createElement('div')
+                    myDiv.className = 'div-mostrar'
+                    const icon = document.createElement('button')
+                    icon.className = 'fa fa-cart-plus'
+                    icon.setAttribute('aria-hidden', true)
+                    icon.setAttribute('id', 'icon')
+                    const myPara1 = document.createElement('p')
+                    myPara1.textContent = `${json.results[i].title}`
+                    //Convertir precio de string a entero
+                    newprice = `$ ${json.results[i].price}`.substring(2, `$ ${json.results[i].price}`.length)
+                    newprice2 = parseInt(newprice);
+                    const myPara2 = document.createElement('h5')
+                    myPara2.textContent = newprice2
+                    let imagen = document.createElement('img')
+                    imagen.setAttribute('src', json.results[i].thumbnail)
+                    imagen.className += "imagen"
+                    myDiv.appendChild(myPara1)
+                    myDiv.appendChild(myPara2)
+                    myDiv.appendChild(imagen)
+                    myDiv.appendChild(icon).dataset.id = `$ ${json.results[i].id}`                    
+                    textML.appendChild(myDiv)                                                        
+                } 
         }).catch(err => {
             console.error("Error: ", err)
         })
 
 }
 
-/*
-//pintar productos
-const pintarCards = data2 => {
-    //console.log(data);
-    data2.forEach(item => {
-        console.log(`${json.results[i]}`);
-        templateCard.querySelector('h5').textContent = `${json.results[i].title}`
-        newprice = `$ ${json.results[i].price}`.substring(2, `$ ${json.results[i].price}`.length)
-        newprice2 = parseInt(newprice);
-        templateCard.querySelector('p').textContent = newprice2
-        templateCard.querySelector('button').dataset.id = `$ ${json.results[i].id}`
-        const clone = templateCard.cloneNode(true)
-        fragment.appendChild(clone)
-    })
-    cards.appendChild(fragment)
-}*/
 
 
-//Carrito de compras
-
+//Añadimos al carrito
 const addCarrito = e => {
     if (e.target.classList.contains('fa-cart-plus')) {
         setCarrito(e.target.parentElement)
     }
     e.stopPropagation()
 }
-
 
 const setCarrito = objeto => {
     const producto = {
@@ -138,7 +96,7 @@ const setCarrito = objeto => {
     pintarCarrito()
 }
 
- 
+//Se obtiene el total del carro
 const pintarCarrito = () => {
     items.innerHTML = ''
     Object.values(carrito).forEach(producto => {
@@ -153,7 +111,7 @@ const pintarCarrito = () => {
     })
     items.appendChild(fragment)
     pintarFooter()
-    localStorage.setItem('carrito', JSON.stringify(carrito))
+    localStorage.setItem('carrito', json.stringify(carrito))
 }
 
 const pintarFooter = () => {

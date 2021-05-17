@@ -28,31 +28,6 @@ app.use((err, req, res, next) => {
     }
 })
 
-//end point inicial G
-/*app.get("/",cors(midd.corsOptions), async function (req, res) {
-  let respuesta = {
-    codigo: 200,
-    error: false,
-    message: "Punto de inicio de la APP",
-  };
-  res.send(respuesta);
-});
-app.get("/productos/", cors(midd.corsOptions), async function (req,res){
-    try{
-        id = "MLM1132";
-        let productos = await serviciosMercadoLibre.getInfoProductos(id);
-        console.log("estos son los productos", productos);
-        res.send(productos);
-    }
-    catch(error){
-        let errorFinal = {
-            error: error.message,
-            message: "Error inesperado",
-          };
-          res.send(errorFinal);
-    }
-});*/
-
 //end point inicial 
 app.get("/",cors(middle.corsOptions), (req, res) => {
     let respuesta = {
@@ -64,31 +39,31 @@ app.get("/",cors(middle.corsOptions), (req, res) => {
   })
   
   //get a categorías
-  app.get("/categoria",cors(middle.corsOptions),async function (req, res)  {
-    try {
-        let categorias = await serviceAPI.getCategoriaInfo()
-        res.send(categorias)
-    } catch (error) {
+app.get("/categoria",cors(middle.corsOptions),async function (req, res)  {
+  try {
+      let categorias = await serviceAPI.getCategoriaInfo()
+      res.send(categorias)
+  } catch (error) {
+    let finalE = {
+      message: "Ocurrió un error",
+      error: error.message,
+      
+    }
+    res.send(finalE)
+  }
+})
+//get a productos
+app.get("/producto", cors(middle.corsOptions), async function (req,res){
+  try{
+      id = "MLM1051"
+      let producto = await serviceAPI.getProductosInfo(id)
+      res.send(producto)
+  }
+  catch(error){
       let finalE = {
-        message: "Ocurrió un error",
-        error: error.message,
-        
-      }
-      res.send(finalE)
-    }
-  })
-
-  app.get("/producto", cors(middle.corsOptions), async function (req,res){
-    try{
-        id = "MLM1051"
-        let producto = await serviceAPI.getProductosInfo(id)
-        res.send(producto)
-    }
-    catch(error){
-        let finalE = {
-            error: error.message,
-            message: "Ocurrió un error",
-          }
-          res.send(finalE)
-    }
+          error: error.message,
+          message: "Ocurrió un error",
+        }
+        res.send(finalE)
+  }
 })

@@ -36,34 +36,42 @@ input{
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 0;
     border: 1px solid rgb(63, 63, 63);
-    
+    border: none;
 }
+
 .div-mostrar{
-    border: 1px solid grey;
+    border: none;
     border-radius: 3%;
-    box-shadow: 1px 1px 2px 2px rgb(153, 152, 152);
+    
     padding: 10%;
+    top: 10%;
     display: inline-block;
     font-weight: normal;
     font-size: 1.2rem;
     text-align: center;
     
 }
+.div-mostrar:hover{
+    background-color: rgb(56, 54, 54);
+    color: whitesmoke;
+    transition: 1300ms;
+}
 .div-mostrar > img{
     object-fit: cover;
     border-radius: 50%;
-    width: 80%;
+    width: 60%;
     height: 70%;
     image-rendering: optimizeQuality;
-    
+    border: none;
 }
 .div-mostrar > button{
     background-color: #222;
     color: white;
     border-radius: 100%;
     width: 20%;
-    height: 15%;
+    height: 20%;
     font-size: 120%;
+    text-align: center;
     
 }
 .div-mostrar > button:hover{
@@ -76,13 +84,18 @@ input{
 .logo{
     image-rendering: optimizeQuality;
     position: relative;
-    width: 25%;
-    height: 0%;
-    right: 80%;
+    width: 20%;
+    height: 10%;
+    right: 46%;
     top: 1%;
 }
-
+.card{
+    text-align: center;
+}
 .container {
     background-color: #eee;
     color: black;
+}
+.card .card-header .card-body button{
+    border-radius: 15px;
 }

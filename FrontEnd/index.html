@@ -10,17 +10,22 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="../BackEnd/scrollreveal.js"></script>
     <title>Tienda Virtual</title>
 </head>
+
 <body>
     <div class="container">
         <div class="search-bar">
             <img src="./assets/img/tecla.png" class="logo">
-            <button type="button" onclick="" class="btn btn-outline-dark">Carrito</button>
-            <input type="text" placeholder="Buscar..." id='search'>
-            <button type="button" onclick="buscar()" class="search-icon">Buscar</button>
+            <div class="superiorder">
+                <a href="./checkout.html">
+                    <button type="button" onclick="" class="btn btn-outline-dark">Carrito</button>
+                </a>                <input type="text" placeholder="Buscar..." id='search'>
+                <button type="button" onclick="buscar()" class="search-icon">Buscar</button>
+            </div>
         </div>
-        <div class="card">
+        <div class="card tarjetas">
             <h5 class="card-header">Categorias</h5>
             <div class="card-body">
                 <button type="button" onclick="getProducto('Celulares')" class="btn btn-secondary">Celulares</button>
@@ -38,24 +43,26 @@
         </div>
         <div id="MercadoLibre">
         </div>
-        <h4>Carrito de compras</h4>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Item</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">A/Q</th>
-                    <th scope="col">Total</th>
-                </tr>
-            </thead>
-            <tbody id="items"></tbody>
-            <tfoot>
-                <tr id="footer">
-                    <th scope="row" colspan="5">Que esperas para gastar tu dinero? >:V </th>
-                </tr>
-            </tfoot>
-        </table>
+        <div class="carritocompras">
+            <h4>Carrito de compras</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Item</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">A/Q</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody id="items"></tbody>
+                <tfoot>
+                    <tr id="footer">
+                        <th scope="row" colspan="5">Que esperas para gastar tu dinero? >:V </th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
     <template id="template-footer">
         <th scope="row" colspan="2">Total productos</th>
@@ -85,6 +92,7 @@
     </template>
 
     <script src="../BackEnd/index.js"></script>
+    <script src="../BackEnd/transiciones.js"></script>
 </body>
 
 </html>
