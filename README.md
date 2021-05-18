@@ -13,5 +13,6 @@ Parte de nuestro .env
 
 Una vez descargado el proyecto, debes abrir consola, descargar los modulos ocupados con el comando npm init, y eventualmente npm i --yes
 
+Link para consultar documentación swagger: https://app.swaggerhub.com/apis/SamuelCruzGz/MercadoLibre/1.0.0
 
 Gracias!!
