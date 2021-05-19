@@ -15,62 +15,91 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="search-bar">
-            <img src="./assets/img/tecla.png" class="logo">
-            <div class="superiorder">
-                <a href="./checkout.html">
-                    <button type="button" onclick="" class="btn btn-outline-dark">Carrito</button>
-                </a>                <input type="text" placeholder="Buscar..." id='search'>
-                <button type="button" onclick="buscar()" class="search-icon">Buscar</button>
+    <div>
+        <section class="container">
+            <div class="search-bar">
+                <div class="superiorder">
+                    <img src="./assets/img/tecla.png" class="logo">
+                    <a href="#" class="cta">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                            fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                        </svg> 
+                    </a>
+                    <input type="text" placeholder="Buscar..." id='search'>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <button type="button" onclick="buscar()" class="search-icon">Buscar</button>
+                </div>
             </div>
-        </div>
-        <div class="card tarjetas">
-            <h5 class="card-header">Categorias</h5>
-            <div class="card-body">
-                <button type="button" onclick="getProducto('Celulares')" class="btn btn-secondary">Celulares</button>
-                <button type="button" onclick="getProducto('Laptops')" class="btn btn-secondary">Laptops</button>
-                <button type="button" onclick="getProducto('Camaras y video')" class="btn btn-secondary">Camaras y
-                    video</button>
-                <button type="button" onclick="getProducto('Telefonia')" class="btn btn-secondary">Telefonia</button>
-                <button type="button" onclick="getProducto('Consolas')" class="btn btn-secondary">Consolas</button>
-                <button type="button" onclick="getProducto('Videojuegos')"
-                    class="btn btn-secondary">Videojuegos</button>
-                <button type="button" onclick="getProducto('Acesorios de videojuegos')"
-                    class="btn btn-secondary">Acesorios de videojuegos</button>
-                <button type="button" onclick="getProducto('Audifonos')" class="btn btn-secondary">Audifonos</button>
+            <div class="card tarjetas">
+                <h5 class="card-header">Categorias</h5>
+                <div class="card-body">
+                    <button id='botoncel' type="button" onclick='document.getElementById("botoncel").innerHTML = boton("Celulares")
+                ' class="btn btn-secondary">Celulares</button>
+                    <button id='botonlap' type="button" onclick='document.getElementById("botonlap").innerHTML = boton("Laptops")
+                ' class="btn btn-secondary">Laptops</button>
+                    <button id='botoncam' type="button" onclick='document.getElementById("botoncam").innerHTML = boton("camaras y video")
+                ' class="btn btn-secondary">Camaras y
+                        video</button>
+                    <button id='botontel' type="button" onclick='document.getElementById("botontel").innerHTML = boton("Telefonia")
+                ' class="btn btn-secondary">Telefonia</button>
+                    <button id='botoncons' type="button" onclick='document.getElementById("botoncons").innerHTML = boton("consolas")
+                ' class="btn btn-secondary">Consolas</button>
+                    <button id='botongames' type="button" onclick='document.getElementById("botongames").innerHTML = boton("videojuegos")
+                ' class="btn btn-secondary">Videojuegos</button>
+                    <button id='botonacce' type="button" onclick='document.getElementById("botonacce").innerHTML = boton("accesorios de video")
+                ' class="btn btn-secondary">Acesorios de videojuegos</button>
+                    <button id='botonaudif' type="button" onclick='document.getElementById("botonaudif").innerHTML = boton("audifonos")
+                ' class="btn btn-secondary">Audifonos</button>
+                </div>
             </div>
-        </div>
-        <div id="MercadoLibre">
-        </div>
-        <div class="carritocompras">
-            <h4>Carrito de compras</h4>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Item</th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">A/Q</th>
-                        <th scope="col">Total</th>
-                    </tr>
-                </thead>
-                <tbody id="items"></tbody>
-                <tfoot>
-                    <tr id="footer">
-                        <th scope="row" colspan="5">Que esperas para gastar tu dinero? >:V </th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+            <div id="MercadoLibre">
+            </div>
+        </section>
+        <section class="modal-container">
+            <div class="carritocompras carrito-close">
+                <p class="close">X</p>
+                <h4>Carrito de compras</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">A/Q</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="items"></tbody>
+                    <tfoot>
+                        <tr id="footer">
+                            <th scope="row" colspan="5">Que esperas para gastar tu dinero? >:V </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
     </div>
+
+
+
+
     <template id="template-footer">
         <th scope="row" colspan="2">Total productos</th>
         <td>10</td>
         <td>
-            <button class="btn btn-danger btn-sm" id="vaciar-carrito">
-                vaciar todo
+            <button class="btn btn-danger" id="vaciar-carrito">
+                vaciar
             </button>
+            <a href="./checkout.html">
+                <button class="btn btn-success">
+                    Pagar
+                </button>
+            </a> 
         </td>
         <td class="font-weight-bold">$ <span>5000</span></td>
     </template>
@@ -93,6 +122,7 @@
 
     <script src="../BackEnd/index.js"></script>
     <script src="../BackEnd/transiciones.js"></script>
+    <script src="../BackEnd/modalcarrito.js"></script>
 </body>
 
 </html>

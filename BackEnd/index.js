@@ -36,6 +36,11 @@ function buscar() {
     contador++
 }
 
+function boton(categoria) {
+    document.getElementById("MercadoLibre").innerHTML= ""
+    getProducto(categoria);
+    return categoria
+}
 
 //Prueba
 //traer productos
@@ -59,7 +64,6 @@ async function getProduct (name){
 }*/
 
 function getProducto(name) {
-    name.innerHTML = ''
     let productName = url + name
     fetch(productName)
         .then(response => response.json())
@@ -93,7 +97,7 @@ function getProducto(name) {
         }).catch(err => {
             console.error("Error: ", err)
         })
-
+        //$('.btn btn-secondary').show();
 }
 
 /*

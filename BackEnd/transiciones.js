@@ -12,21 +12,23 @@ sr.reveal('.card-body', {
     distance: 'down'
 });
 
-sr.reveal('.carritocompras', {
-    duration: 4000,
-    rotate: {
-        x: 1,
-        y: 180,
-    }
-});
 
 sr.reveal('.superiorder', {
-    duration: 10000,
+    duration: 5000,
     origin: 'bottom',
     distance: 'right'
 });
 
 sr.reveal('.logo', { 
+    duration: 2000,
+    rotate: {
+        x: 1,
+        y: 180,
+    }
+}) 
+
+
+sr.reveal('#botoncel, #botonlap, #botoncam, #botontel, #botoncons, #botongames, #botonacce, #botonaudif', { 
     duration: 4000,
     rotate: {
         x: 1,
