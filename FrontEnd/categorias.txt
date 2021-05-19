@@ -1,0 +1,42 @@
+<div class="card tarjetas">
+            <h5 class="card-header">Categorias</h5>
+            <div class="card-body">
+                <button type="button" category= "celulares" onclick="getProducto('Celulares')" class="btn btn-secondary">Celulares</button>
+                <button type="button" category= "laptops" onclick="getProducto('Laptops')" class="btn btn-secondary">Laptops</button>
+                <button type="button" category= "camaras y video" onclick="getProducto('Camaras y video')" class="btn btn-secondary">Camaras y
+                    video</button>
+                <button type="button" category= "telefonia" onclick="getProducto('Telefonia')" class="btn btn-secondary">Telefonia</button>
+                <button type="button" category= "consolas" onclick="getProducto('Consolas')" class="btn btn-secondary">Consolas</button>
+                <button type="button" category= "videojuegos" onclick="getProducto('Videojuegos')"
+                    class="btn btn-secondary">Videojuegos</button>
+                <button type="button" category= "accesorios de videojuegos" onclick="getProducto('Acesorios de videojuegos')"
+                    class="btn btn-secondary">Acesorios de videojuegos</button>
+                <button type="button" category= "audifonos" onclick="getProducto('Audifonos')" class="btn btn-secondary">Audifonos</button>
+            </div>
+        </div>
+
+
+
+
+<div class="collapse bg-dark" id="navbarHeader2">
+            <div class="carritocompras">
+                <h4>Carrito de compras</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">A/Q</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="items"></tbody>
+                    <tfoot>
+                        <tr id="footer">
+                            <th scope="row" colspan="5">Que esperas para gastar tu dinero? >:V </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
